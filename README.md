@@ -51,4 +51,36 @@ Siga estos pasos para instalar y ejecutar el proyecto desde cero:
 - SQLite (local) o Azure SQL (producción)
 
 Para más información sobre configuración avanzada, revise los archivos de ejemplo y la documentación interna del proyecto.
-# ToyBotSolutions
+
+## Ejemplos de uso con curl
+
+A continuación se presentan ejemplos para probar los endpoints principales utilizando la herramienta `curl`:
+
+### Registro de usuario
+
+```bash
+curl -X POST http://localhost:3000/register \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser","password":"testpass"}'
+```
+
+### Login de usuario (obtención de token JWT)
+
+```bash
+curl -X POST http://localhost:3000/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser","password":"testpass"}'
+```
+
+El resultado incluirá un campo `token` que debe utilizarse en el siguiente endpoint.
+
+### Chat protegido (requiere token JWT)
+
+```bash
+curl -X POST http://localhost:3000/chat \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <TOKEN>" \
+  -d '{"message":"Hola"}'
+```
+
+Reemplace `<TOKEN>` por el valor obtenido en el login.
