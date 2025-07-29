@@ -1,0 +1,68 @@
+/* Estilos para formularios de login, registro y chat */
+.formContainer {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #6366f122;
+  padding: 32px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+}
+.formTitle {
+  color: #6366f1;
+  margin: 0;
+  text-align: center;
+}
+.input {
+  border-radius: 8px;
+  border: 1px solid #c7d2fe;
+  padding: 12px;
+  font-size: 16px;
+}
+.button {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.button:hover {
+  background: #4338ca;
+}
+.response {
+  background: #e0e7ff;
+  border-radius: 8px;
+  padding: 12px;
+  color: #222;
+  margin-top: 8px;
+}
+.error {
+  background: #fee2e2;
+  border-radius: 8px;
+  padding: 12px;
+  color: #b91c1c;
+  margin-top: 8px;
+  text-align: center;
+}
+.logout {
+  margin-top: 24px;
+  background: #f59e42;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #f59e4222;
+  transition: background 0.2s;
+}
+.logout:hover {
+  background: #ea580c;
+}
