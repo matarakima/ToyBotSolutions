@@ -16,7 +16,8 @@ const start = async () => {
   try {
     // Register CORS
     await fastify.register(fastifyCors, {
-      origin: 'http://localhost:5173'
+      origin: process.env.CORS_ORIGIN || 'http://localhost:5173', // Usa una variable de entorno para definir el origen permitido
+      methods: ['GET', 'POST'], // Métodos permitidos
     });
 
     await fastify.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' });
