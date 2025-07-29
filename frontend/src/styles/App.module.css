@@ -1,0 +1,33 @@
+/* Estilos para la página de inicio y navegación */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  font-family: Inter, Arial, sans-serif;
+  color: #222;
+}
+.title {
+  color: #6366f1;
+  margin-bottom: 8px;
+}
+.subtitle {
+  margin-bottom: 32px;
+}
+.nav {
+  margin-bottom: 32px;
+  display: flex;
+  gap: 16px;
+}
+.navLink {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+.navLink:hover {
+  color: #4338ca;
+}
