@@ -3,6 +3,7 @@ require('dotenv').config();
 const fastify = require('fastify')({ logger: true });
 const authRoutes = require('./routes/auth');
 const chatRoutes = require('./routes/chat');
+const fastifyCors = require('@fastify/cors');
 
 // Fastify ya soporta JSON en el body por defecto en v4.x
 
@@ -13,6 +14,11 @@ fastify.register(chatRoutes);
 // Start server
 const start = async () => {
   try {
+    // Register CORS
+    await fastify.register(fastifyCors, {
+      origin: 'http://localhost:5173'
+    });
+
     await fastify.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' });
     fastify.log.info(`Server running on port ${process.env.PORT || 3000}`);
   } catch (err) {
