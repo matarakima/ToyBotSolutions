@@ -1,0 +1,612 @@
+<testsuites id="" name="" tests="75" failures="0" skipped="75" errors="0" time="2.2527489999999997">
+<testsuite name="auth-flow.test.js" timestamp="2025-07-30T20:36:02.984Z" hostname="chromium" tests="15" failures="0" skipped="15" time="0" errors="0">
+<testcase name="Flujo de Autenticación - E2E › NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios vacíos (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería hacer logout correctamente (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar interrupciones de red (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.test.js" timestamp="2025-07-30T20:36:02.984Z" hostname="firefox" tests="15" failures="0" skipped="15" time="0" errors="0">
+<testcase name="Flujo de Autenticación - E2E › NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios vacíos (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería hacer logout correctamente (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar interrupciones de red (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.test.js" timestamp="2025-07-30T20:36:02.984Z" hostname="webkit" tests="15" failures="0" skipped="15" time="0" errors="0">
+<testcase name="Flujo de Autenticación - E2E › NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios vacíos (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería hacer logout correctamente (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar interrupciones de red (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.test.js" timestamp="2025-07-30T20:36:02.984Z" hostname="Mobile Chrome" tests="15" failures="0" skipped="15" time="0" errors="0">
+<testcase name="Flujo de Autenticación - E2E › NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios vacíos (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería hacer logout correctamente (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar interrupciones de red (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.test.js" timestamp="2025-07-30T20:36:02.984Z" hostname="Mobile Safari" tests="15" failures="0" skipped="15" time="0" errors="0">
+<testcase name="Flujo de Autenticación - E2E › NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios vacíos (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería hacer logout correctamente (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar interrupciones de red (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Flujo de Autenticación - E2E › NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)" classname="auth-flow.test.js" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

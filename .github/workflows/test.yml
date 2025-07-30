@@ -1,0 +1,311 @@
+name: Pruebas Automatizadas
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  # Job para pruebas unitarias
+  unit-tests:
+    name: Pruebas Unitarias
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
+      
+    - name: Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: testing/package-lock.json
+        
+    - name: Instalar dependencias del proyecto
+      run: |
+        cd backend
+        npm ci
+        
+    - name: Instalar dependencias de testing
+      run: |
+        cd testing
+        npm ci
+        
+    - name: Configurar variables de entorno
+      run: |
+        cd testing
+        echo "NODE_ENV=test" >> .env
+        echo "TEST_SERVER_PORT=3001" >> .env
+        echo "TEST_SERVER_HOST=localhost" >> .env
+        echo "TEST_DB_PATH=./test-database.sqlite" >> .env
+        echo "TEST_JWT_SECRET=test-secret-key" >> .env
+        echo "OPENAI_API_KEY=test-key" >> .env
+        
+    - name: Ejecutar pruebas unitarias
+      run: |
+        cd testing
+        npm run test:unit
+        
+    - name: Subir reportes de cobertura
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: unit-coverage-reports
+        path: testing/reports/
+        retention-days: 30
+
+  # Job para pruebas de integración
+  integration-tests:
+    name: Pruebas de Integración
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
+      
+    - name: Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: testing/package-lock.json
+        
+    - name: Instalar dependencias del proyecto
+      run: |
+        cd backend
+        npm ci
+        
+    - name: Instalar dependencias de testing
+      run: |
+        cd testing
+        npm ci
+        
+    - name: Configurar variables de entorno
+      run: |
+        cd testing
+        echo "NODE_ENV=test" >> .env
+        echo "TEST_SERVER_PORT=3001" >> .env
+        echo "TEST_SERVER_HOST=localhost" >> .env
+        echo "TEST_DB_PATH=./test-database.sqlite" >> .env
+        echo "TEST_JWT_SECRET=test-secret-key" >> .env
+        echo "OPENAI_API_KEY=test-key" >> .env
+        
+    - name: Ejecutar pruebas de integración
+      run: |
+        cd testing
+        npm run test:integration
+        
+    - name: Subir reportes de cobertura
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: integration-coverage-reports
+        path: testing/reports/
+        retention-days: 30
+
+  # Job para pruebas E2E
+  e2e-tests:
+    name: Pruebas E2E
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
+      
+    - name: Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: |
+          backend/package-lock.json
+          frontend/package-lock.json
+          testing/package-lock.json
+        
+    - name: Instalar dependencias del backend
+      run: |
+        cd backend
+        npm ci
+        
+    - name: Instalar dependencias del frontend
+      run: |
+        cd frontend
+        npm ci
+        
+    - name: Instalar dependencias de testing
+      run: |
+        cd testing
+        npm ci
+        
+    - name: Instalar Playwright
+      run: |
+        cd testing
+        npx playwright install --with-deps
+        
+    - name: Configurar variables de entorno
+      run: |
+        cd testing
+        echo "NODE_ENV=test" >> .env
+        echo "TEST_SERVER_PORT=3001" >> .env
+        echo "TEST_SERVER_HOST=localhost" >> .env
+        echo "TEST_DB_PATH=./test-database.sqlite" >> .env
+        echo "TEST_JWT_SECRET=test-secret-key" >> .env
+        echo "OPENAI_API_KEY=test-key" >> .env
+        echo "FRONTEND_URL=http://localhost:5173" >> .env
+        
+    - name: Iniciar servidor backend
+      run: |
+        cd backend
+        npm start &
+        sleep 10
+        
+    - name: Iniciar servidor frontend
+      run: |
+        cd frontend
+        npm run dev &
+        sleep 10
+        
+    - name: Ejecutar pruebas E2E
+      run: |
+        cd testing
+        npm run test:e2e
+        
+    - name: Subir reportes de E2E
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: e2e-reports
+        path: testing/reports/
+        retention-days: 30
+
+  # Job para pruebas completas (solo en main)
+  full-tests:
+    name: Pruebas Completas
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    needs: [unit-tests, integration-tests, e2e-tests]
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
+      
+    - name: Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: testing/package-lock.json
+        
+    - name: Instalar dependencias
+      run: |
+        cd backend && npm ci
+        cd ../frontend && npm ci
+        cd ../testing && npm ci
+        
+    - name: Configurar variables de entorno
+      run: |
+        cd testing
+        echo "NODE_ENV=test" >> .env
+        echo "TEST_SERVER_PORT=3001" >> .env
+        echo "TEST_SERVER_HOST=localhost" >> .env
+        echo "TEST_DB_PATH=./test-database.sqlite" >> .env
+        echo "TEST_JWT_SECRET=test-secret-key" >> .env
+        echo "OPENAI_API_KEY=test-key" >> .env
+        echo "FRONTEND_URL=http://localhost:5173" >> .env
+        
+    - name: Ejecutar todas las pruebas con cobertura
+      run: |
+        cd testing
+        npm run test:coverage
+        
+    - name: Subir reportes completos
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: full-coverage-reports
+        path: testing/reports/
+        retention-days: 30
+        
+    - name: Comentar en PR con resultados
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+          
+          let coverageSummary = '';
+          
+          try {
+            const coveragePath = 'testing/reports/coverage/coverage-summary.json';
+            if (fs.existsSync(coveragePath)) {
+              const coverage = JSON.parse(fs.readFileSync(coveragePath, 'utf8'));
+              coverageSummary = `
+              ## 📊 Resumen de Cobertura
+              
+              | Tipo | Cobertura |
+              |------|-----------|
+              | Líneas | ${coverage.total.lines.pct}% |
+              | Funciones | ${coverage.total.functions.pct}% |
+              | Ramas | ${coverage.total.branches.pct}% |
+              | Declaraciones | ${coverage.total.statements.pct}% |
+              `;
+            }
+          } catch (error) {
+            console.log('No se pudo leer el reporte de cobertura');
+          }
+          
+          const comment = `
+          ## ✅ Pruebas Completadas
+          
+          Todas las pruebas han sido ejecutadas exitosamente:
+          
+          - ✅ Pruebas Unitarias
+          - ✅ Pruebas de Integración  
+          - ✅ Pruebas E2E
+          
+          ${coverageSummary}
+          
+          📁 Los reportes detallados están disponibles en los artifacts de este workflow.
+          `;
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
+
+  # Job para notificaciones
+  notify:
+    name: Notificaciones
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [unit-tests, integration-tests, e2e-tests, full-tests]
+    
+    steps:
+    - name: Notificar resultados
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { unit, integration, e2e, full } = needs;
+          
+          const results = {
+            unit: unit.result,
+            integration: integration.result,
+            e2e: e2e.result,
+            full: full?.result || 'skipped'
+          };
+          
+          const allPassed = Object.values(results).every(r => r === 'success' || r === 'skipped');
+          
+          if (allPassed) {
+            console.log('🎉 Todas las pruebas pasaron exitosamente!');
+          } else {
+            console.log('❌ Algunas pruebas fallaron');
+            console.log('Resultados:', results);
+          } 
