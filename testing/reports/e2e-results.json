@@ -1,0 +1,3393 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\playwright.config.js",
+    "rootDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/e2e",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\setup\\playwright-setup.js",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 10
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/e2e-html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/e2e-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/e2e-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/reports/e2e-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 10
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/reports/e2e-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 10
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/reports/e2e-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 10
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/reports/e2e-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 10
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/reports/e2e-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 10
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "C:/Users/carlo/OneDrive/Documents/GitHub/ToyBotSolutions/testing/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.54.1",
+    "workers": 10,
+    "webServer": {
+      "command": "cd ../frontend && npm run dev",
+      "url": "http://localhost:5173",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "auth-flow.test.js",
+      "file": "auth-flow.test.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Flujo de Autenticación - E2E",
+          "file": "auth-flow.test.js",
+          "line": 12,
+          "column": 6,
+          "specs": [
+            {
+              "title": "NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 18,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:02.985Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-61a3c6b61d2d6b385b69",
+              "file": "auth-flow.test.js",
+              "line": 18,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 40,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.001Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-afd608e396f33b45ae94",
+              "file": "auth-flow.test.js",
+              "line": 40,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios vacíos (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 51,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.007Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-fa34bfb6fe94d4e6590e",
+              "file": "auth-flow.test.js",
+              "line": 51,
+              "column": 8
+            },
+            {
+              "title": "NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 59,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.014Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-38dbe66b5ba3a5877b11",
+              "file": "auth-flow.test.js",
+              "line": 59,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 72,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.021Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-8ef558af39d4834a81b5",
+              "file": "auth-flow.test.js",
+              "line": 72,
+              "column": 8
+            },
+            {
+              "title": "NA - debería hacer logout correctamente (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 88,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.027Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-104ef8e89c02ef2edb9b",
+              "file": "auth-flow.test.js",
+              "line": 88,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 104,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.032Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-387435fbd4d9e140cca8",
+              "file": "auth-flow.test.js",
+              "line": 104,
+              "column": 8
+            },
+            {
+              "title": "NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 117,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.037Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-19df62ad75971b61801e",
+              "file": "auth-flow.test.js",
+              "line": 117,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 125,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.043Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-e35368cefd2c9e57abbb",
+              "file": "auth-flow.test.js",
+              "line": 125,
+              "column": 8
+            },
+            {
+              "title": "NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 135,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.048Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-df8e1ee84005160ec587",
+              "file": "auth-flow.test.js",
+              "line": 135,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 149,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.053Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-dbb36f44bf3620b7feb8",
+              "file": "auth-flow.test.js",
+              "line": 149,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar interrupciones de red (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 163,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.058Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-c837307c0ad2a0f5ad60",
+              "file": "auth-flow.test.js",
+              "line": 163,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 176,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.064Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-9c57f5a46042cddb3616",
+              "file": "auth-flow.test.js",
+              "line": 176,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 190,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.069Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-1ad20520991e91616138",
+              "file": "auth-flow.test.js",
+              "line": 190,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 206,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.073Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-eb579b4b05d357fe9b83",
+              "file": "auth-flow.test.js",
+              "line": 206,
+              "column": 8
+            },
+            {
+              "title": "NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 18,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.079Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-546608c560524a9520b4",
+              "file": "auth-flow.test.js",
+              "line": 18,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 40,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.084Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-6ab9ebf49c802dcd3b75",
+              "file": "auth-flow.test.js",
+              "line": 40,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios vacíos (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 51,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.089Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-963fd3c76044ba569880",
+              "file": "auth-flow.test.js",
+              "line": 51,
+              "column": 8
+            },
+            {
+              "title": "NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 59,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.096Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-9b546fcc1b5bfde75611",
+              "file": "auth-flow.test.js",
+              "line": 59,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 72,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.101Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-22d837ec6388103ed071",
+              "file": "auth-flow.test.js",
+              "line": 72,
+              "column": 8
+            },
+            {
+              "title": "NA - debería hacer logout correctamente (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 88,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.107Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-098b5aa0b3ef136f3bfb",
+              "file": "auth-flow.test.js",
+              "line": 88,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 104,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.112Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-0cae28c682452da8c321",
+              "file": "auth-flow.test.js",
+              "line": 104,
+              "column": 8
+            },
+            {
+              "title": "NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 117,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.118Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-a0874a7898bdafb3d642",
+              "file": "auth-flow.test.js",
+              "line": 117,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 125,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.123Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-4129edbcac0e60458038",
+              "file": "auth-flow.test.js",
+              "line": 125,
+              "column": 8
+            },
+            {
+              "title": "NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 135,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.129Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-14203b154ba1f3836c58",
+              "file": "auth-flow.test.js",
+              "line": 135,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 149,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.134Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-5cfcfaf37cb1deeef22b",
+              "file": "auth-flow.test.js",
+              "line": 149,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar interrupciones de red (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 163,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.147Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-f5ea90c43b3e6c54d1d3",
+              "file": "auth-flow.test.js",
+              "line": 163,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 176,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.151Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-b90bb54c4ca356bd455f",
+              "file": "auth-flow.test.js",
+              "line": 176,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 190,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.157Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-06e1c8e37b4941b71822",
+              "file": "auth-flow.test.js",
+              "line": 190,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 206,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.162Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-262d5d6213f3c72dc1fe",
+              "file": "auth-flow.test.js",
+              "line": 206,
+              "column": 8
+            },
+            {
+              "title": "NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 18,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.168Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-01dd55253a4a33a20b83",
+              "file": "auth-flow.test.js",
+              "line": 18,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 40,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.174Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-688687c881c42df0fe7e",
+              "file": "auth-flow.test.js",
+              "line": 40,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios vacíos (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 51,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.182Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-630051a9b221ef6d04ac",
+              "file": "auth-flow.test.js",
+              "line": 51,
+              "column": 8
+            },
+            {
+              "title": "NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 59,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.188Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-eb327265c18a06f3bb48",
+              "file": "auth-flow.test.js",
+              "line": 59,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 72,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.194Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-bce19b6e1e4063b14ccf",
+              "file": "auth-flow.test.js",
+              "line": 72,
+              "column": 8
+            },
+            {
+              "title": "NA - debería hacer logout correctamente (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 88,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.200Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-f34c059695ceef38ecbc",
+              "file": "auth-flow.test.js",
+              "line": 88,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 104,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.206Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-44179829ae52a615fa36",
+              "file": "auth-flow.test.js",
+              "line": 104,
+              "column": 8
+            },
+            {
+              "title": "NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 117,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.212Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-f4fab467a309a1855ea8",
+              "file": "auth-flow.test.js",
+              "line": 117,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 125,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.218Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-9b5c72ec219905a4ac92",
+              "file": "auth-flow.test.js",
+              "line": 125,
+              "column": 8
+            },
+            {
+              "title": "NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 135,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.223Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-601fcb5ae6e31f6ba48f",
+              "file": "auth-flow.test.js",
+              "line": 135,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 149,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-88409a47c72253b15d3e",
+              "file": "auth-flow.test.js",
+              "line": 149,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar interrupciones de red (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 163,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.234Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-5cbc131356cf78defd0f",
+              "file": "auth-flow.test.js",
+              "line": 163,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 176,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.240Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-f24551f1c39f3eadd601",
+              "file": "auth-flow.test.js",
+              "line": 176,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 190,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.245Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-46e97521e8ca6b9af1e2",
+              "file": "auth-flow.test.js",
+              "line": 190,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 206,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.251Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-8770baad98966c100b00",
+              "file": "auth-flow.test.js",
+              "line": 206,
+              "column": 8
+            },
+            {
+              "title": "NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 18,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.257Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-b28127cd8a254ab3ec1e",
+              "file": "auth-flow.test.js",
+              "line": 18,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 40,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.263Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-46e2bebf77c41013c9c6",
+              "file": "auth-flow.test.js",
+              "line": 40,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios vacíos (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 51,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.271Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-e9b808a2d0f0777b1d4b",
+              "file": "auth-flow.test.js",
+              "line": 51,
+              "column": 8
+            },
+            {
+              "title": "NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 59,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.276Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-6da7b16cae0bb6f34851",
+              "file": "auth-flow.test.js",
+              "line": 59,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 72,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.281Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-6bca18b38adaf8a6e003",
+              "file": "auth-flow.test.js",
+              "line": 72,
+              "column": 8
+            },
+            {
+              "title": "NA - debería hacer logout correctamente (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 88,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.287Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-4bfee0641c85deeb5b0c",
+              "file": "auth-flow.test.js",
+              "line": 88,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 104,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.292Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-2b351530493232efe0fa",
+              "file": "auth-flow.test.js",
+              "line": 104,
+              "column": 8
+            },
+            {
+              "title": "NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 117,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.298Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-efcd438dd2aad88f535a",
+              "file": "auth-flow.test.js",
+              "line": 117,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 125,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.303Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-7efe22edb7aec33e01a6",
+              "file": "auth-flow.test.js",
+              "line": 125,
+              "column": 8
+            },
+            {
+              "title": "NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 135,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.308Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-a21f4e32da4307fe353f",
+              "file": "auth-flow.test.js",
+              "line": 135,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 149,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.314Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-e1af94b63d5b634ea347",
+              "file": "auth-flow.test.js",
+              "line": 149,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar interrupciones de red (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 163,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.319Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-61220ac2f2624d4ae8c6",
+              "file": "auth-flow.test.js",
+              "line": 163,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 176,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.324Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-ff8686a59eb892d4bfc9",
+              "file": "auth-flow.test.js",
+              "line": 176,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 190,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.329Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-3cd077573ec4d766ac31",
+              "file": "auth-flow.test.js",
+              "line": 190,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 206,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.335Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-18871818c47d68131bff",
+              "file": "auth-flow.test.js",
+              "line": 206,
+              "column": 8
+            },
+            {
+              "title": "NA - debería completar flujo completo de registro y login (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 18,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.340Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-27aa56fce85cd78057d3",
+              "file": "auth-flow.test.js",
+              "line": 18,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar error con credenciales inválidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 40,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.346Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-df012162e727e021f96e",
+              "file": "auth-flow.test.js",
+              "line": 40,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios vacíos (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 51,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.351Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-68f8ad268d44be011780",
+              "file": "auth-flow.test.js",
+              "line": 51,
+              "column": 8
+            },
+            {
+              "title": "NA - debería navegar entre páginas de autenticación (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 59,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.357Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-88704d698ed14f33cae6",
+              "file": "auth-flow.test.js",
+              "line": 59,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mantener sesión después de recargar página (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 72,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.362Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-9d19bdd17766fa9483b5",
+              "file": "auth-flow.test.js",
+              "line": 72,
+              "column": 8
+            },
+            {
+              "title": "NA - debería hacer logout correctamente (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 88,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.367Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-bd91e51ae48ea9c5bc55",
+              "file": "auth-flow.test.js",
+              "line": 88,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar caracteres especiales en formularios (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 104,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.372Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-7c376f56e4a662c38705",
+              "file": "auth-flow.test.js",
+              "line": 104,
+              "column": 8
+            },
+            {
+              "title": "NA - debería redirigir a login desde rutas protegidas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 117,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.377Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-b4902e9d52f29255a435",
+              "file": "auth-flow.test.js",
+              "line": 117,
+              "column": 8
+            },
+            {
+              "title": "NA - debería mostrar mensajes de error apropiados (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 125,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.382Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-114d68a878f9233fa24f",
+              "file": "auth-flow.test.js",
+              "line": 125,
+              "column": 8
+            },
+            {
+              "title": "NA - debería ser responsive en diferentes tamaños de pantalla (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 135,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.387Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-e2c772ea6b644fe71f0e",
+              "file": "auth-flow.test.js",
+              "line": 135,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar múltiples pestañas (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 149,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.422Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-3aab176791dcab730c2e",
+              "file": "auth-flow.test.js",
+              "line": 149,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar interrupciones de red (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 163,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.427Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-f39ee7c480896d7b885b",
+              "file": "auth-flow.test.js",
+              "line": 163,
+              "column": 8
+            },
+            {
+              "title": "NA - debería validar formularios en tiempo real (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 176,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.432Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-d57edb245035a7733b34",
+              "file": "auth-flow.test.js",
+              "line": 176,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar timeouts de sesión (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 190,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.437Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-a6dfb5bb02d669d76dd1",
+              "file": "auth-flow.test.js",
+              "line": 190,
+              "column": 8
+            },
+            {
+              "title": "NA - debería manejar botones de navegación del navegador (requiere servidores ejecutándose)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\ToyBotSolutions\\testing\\e2e\\auth-flow.test.js",
+                        "line": 206,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-07-30T20:36:03.442Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2c1279265e72c8312739-aea78204459b8b76f5a7",
+              "file": "auth-flow.test.js",
+              "line": 206,
+              "column": 8
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-07-30T20:36:01.568Z",
+    "duration": 2252.749,
+    "expected": 0,
+    "skipped": 75,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
