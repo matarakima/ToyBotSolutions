@@ -1,0 +1,100 @@
+/* Global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #444;
+}
+
+/* Estilos específicos para el chat */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 500px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 70%;
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #ffffff; /* Blanco para mensajes del usuario */
+  color: #333; /* Texto oscuro */
+  border: 1px solid #ddd; /* Borde sutil */
+  margin-left: auto; /* Empuja el mensaje hacia la derecha */
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: #e0e7ff; /* Azul claro para mensajes del bot */
+  color: #1e3a8a; /* Texto azul oscuro */
+}
+
+.message.bot.isProcessing {
+  font-style: italic;
+  color: #6c757d;
+}
+
+.message.bot.isProcessing::after {
+  content: '...';
+  display: inline-block;
+  animation: dots 1.5s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: '';
+  }
+  33% {
+    content: '.';
+  }
+  66% {
+    content: '..';
+  }
+  100% {
+    content: '...';
+  }
+}
+
+/* Input */
+input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 0 0 8px 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #f8fafc; /* Fondo claro */
+  color: #333; /* Texto oscuro */
+  transition: all 0.3s ease-in-out; /* Transición suave */
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(18, 74, 226, 0.5); /* Sombra más pronunciada */
+  background-color: #ffffff; /* Fondo blanco al enfocar */
+}

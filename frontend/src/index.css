@@ -1,1 +1,21 @@
+/* Global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #444;
+}
+
+/* Input focus styles */
+input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+}
+
 /* Minimal or empty styles for now */
