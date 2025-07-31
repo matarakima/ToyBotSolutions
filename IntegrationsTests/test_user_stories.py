@@ -84,3 +84,22 @@ def test_unknown_product_query():
     response = requests.post(f"{BASE_URL}/chat", json=payload)
     assert response.status_code == 200
     assert "not found" in response.text.lower() or "unknown" in response.text.lower() or "no information" in response.text.lower() or response.text.strip() != ""
+
+
+# Positive Case: Child-friendly language for product info
+import re
+def test_child_friendly_language():
+    payload = {"message": "¿Qué hace el juguete robot?"}
+    response = requests.post(f"{BASE_URL}/chat", json=payload)
+    assert response.status_code == 200
+    text = response.text.lower()
+    palabras_complejas = [
+        "inteligencia artificial", "procesamiento", "algoritmo", "configuración",
+        "parámetro", "sistema operativo", "hardware", "software", "implementación"
+    ]
+    for palabra in palabras_complejas:
+        assert palabra not in text, f"La respuesta contiene lenguaje técnico: '{palabra}'"
+    oraciones = re.split(r'[.!?]', text)
+    for oracion in oraciones:
+        if oracion.strip():
+            assert len(oracion.split()) <= 20, "La respuesta debe tener frases cortas y sencillas para niños"
