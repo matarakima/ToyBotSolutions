@@ -38,6 +38,11 @@ h1 {
   padding: 10px;
   border-radius: 5px;
   max-width: 70%;
+  word-wrap: break-word; /* Permite que las palabras largas se ajusten */
+  overflow-wrap: break-word; /* Maneja el desbordamiento de palabras */
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  font-size: 16px; /* Tamaño consistente para el texto de los mensajes */
+  line-height: 1.5; /* Mejora la legibilidad */
 }
 
 .message.user {
@@ -97,4 +102,19 @@ input[type="text"]:focus {
   outline: none;
   box-shadow: 0 0 8px rgba(18, 74, 226, 0.5); /* Sombra más pronunciada */
   background-color: #ffffff; /* Fondo blanco al enfocar */
+}
+
+.markdown-message pre {
+  white-space: pre-wrap; /* Ajusta el texto en bloques de código */
+  word-wrap: break-word;
+}
+
+.markdown-message img {
+  max-width: 100%; /* Asegura que las imágenes no se desborden */
+  height: auto;
+}
+
+.markdown-message table {
+  width: 100%; /* Ajusta las tablas al ancho del contenedor */
+  overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
 }

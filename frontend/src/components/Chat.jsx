@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Chat.css';
+import MarkdownMessage from './MarkdownMessage';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -41,7 +42,7 @@ const Chat = () => {
       <div className="messages">
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.sender}`}>
-            {msg.text}
+            <MarkdownMessage text={msg.text} className="markdown-message" />
           </div>
         ))}
         {isProcessing && (
