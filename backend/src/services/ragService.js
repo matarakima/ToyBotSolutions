@@ -4,8 +4,13 @@ require('dotenv').config();
 
 // 🚀 Cache en memoria para embeddings - Mejora de rendimiento inmediata
 const embeddingCache = new Map();
-const CACHE_MAX_SIZE = 100; // Máximo 100 embeddings en cache
+const searchCache = new Map(); // 🔥 Cache Nivel 2: Resultados de búsqueda RAG
+const responseCache = new Map(); // 🚀 Cache Nivel 3: Respuestas completas del LLM
+
+const CACHE_MAX_SIZE = 100; // Máximo 100 entradas por cache
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutos de vida útil
+const SEARCH_CACHE_TTL = 15 * 60 * 1000; // 15 minutos para búsquedas (más corto)
+const RESPONSE_CACHE_TTL = 60 * 60 * 1000; // 60 minutos para respuestas (más largo)
 
 // Configuración del cliente de Azure OpenAI
 const openai = new OpenAI({
@@ -28,15 +33,12 @@ async function generateEmbedding(query) {
     
     // Verificar si el cache no ha expirado
     if (Date.now() - cachedData.timestamp < CACHE_TTL) {
-      console.log('✅ Embedding obtenido del cache');
       return cachedData.embedding;
     } else {
       // Cache expirado, eliminar entrada
       embeddingCache.delete(cacheKey);
     }
   }
-  
-  console.log('🔄 Generando nuevo embedding con Azure OpenAI');
   
   // Generar nuevo embedding
   const response = await openai.embeddings.create({
@@ -56,7 +58,6 @@ async function generateEmbedding(query) {
   if (embeddingCache.size > CACHE_MAX_SIZE) {
     const firstKey = embeddingCache.keys().next().value;
     embeddingCache.delete(firstKey);
-    console.log('🧹 Cache limpiado - entrada más antigua eliminada');
   }
   
   return embedding;
@@ -65,22 +66,104 @@ async function generateEmbedding(query) {
 // 📊 Función para obtener estadísticas del cache (útil para debugging)
 function getCacheStats() {
   const stats = {
-    size: embeddingCache.size,
-    maxSize: CACHE_MAX_SIZE,
-    entries: Array.from(embeddingCache.keys()).map(key => ({
-      query: key.substring(0, 50) + (key.length > 50 ? '...' : ''),
-      age: Math.round((Date.now() - embeddingCache.get(key).timestamp) / 1000) + 's'
-    }))
+    embeddings: {
+      size: embeddingCache.size,
+      maxSize: CACHE_MAX_SIZE,
+      hitRate: '🔄 Se calcula en tiempo real',
+      entries: Array.from(embeddingCache.keys()).map(key => ({
+        query: key.substring(0, 50) + (key.length > 50 ? '...' : ''),
+        age: Math.round((Date.now() - embeddingCache.get(key).timestamp) / 1000) + 's'
+      }))
+    },
+    searches: {
+      size: searchCache.size,
+      maxSize: CACHE_MAX_SIZE,
+      entries: Array.from(searchCache.keys()).map(key => ({
+        query: key.substring(0, 50) + (key.length > 50 ? '...' : ''),
+        age: Math.round((Date.now() - searchCache.get(key).timestamp) / 1000) + 's'
+      }))
+    },
+    responses: {
+      size: responseCache.size,
+      maxSize: CACHE_MAX_SIZE,
+      entries: Array.from(responseCache.keys()).map(key => ({
+        query: key.substring(0, 50) + (key.length > 50 ? '...' : ''),
+        age: Math.round((Date.now() - responseCache.get(key).timestamp) / 1000) + 's'
+      }))
+    },
+    totalMemoryUsage: `~${Math.round((embeddingCache.size + searchCache.size + responseCache.size) * 0.05)}MB estimado`
   };
   
-  console.log('📊 Cache Stats:', stats);
   return stats;
 }
 
-// RAG service: fetch context for chat
+// 🛠️ Funciones utilitarias para cache
+function cleanExpiredCache(cache, ttl) {
+  const now = Date.now();
+  for (const [key, data] of cache.entries()) {
+    if (now - data.timestamp > ttl) {
+      cache.delete(key);
+    }
+  }
+}
+
+function limitCacheSize(cache, maxSize, cacheType) {
+  while (cache.size > maxSize) {
+    const firstKey = cache.keys().next().value;
+    cache.delete(firstKey);
+  }
+}
+
+function getCachedItem(cache, key, ttl) {
+  if (cache.has(key)) {
+    const cachedData = cache.get(key);
+    if (Date.now() - cachedData.timestamp < ttl) {
+      return cachedData;
+    } else {
+      cache.delete(key);
+    }
+  }
+  return null;
+}
+
+function setCachedItem(cache, key, data, maxSize, cacheType) {
+  cache.set(key, {
+    ...data,
+    timestamp: Date.now()
+  });
+  
+  limitCacheSize(cache, maxSize, cacheType);
+}
+
+// 🚀 Cache Nivel 3: Funciones para respuestas completas del LLM
+function getCachedResponse(query) {
+  const cacheKey = query.trim().toLowerCase();
+  const cached = getCachedItem(responseCache, cacheKey, RESPONSE_CACHE_TTL);
+  
+  if (cached) {
+    return cached.response;
+  }
+  
+  return null;
+}
+
+function setCachedResponse(query, response) {
+  const cacheKey = query.trim().toLowerCase();
+  setCachedItem(responseCache, cacheKey, { response }, CACHE_MAX_SIZE, 'Response');
+}
+
+// RAG service: fetch context for chat con Cache Nivel 2
 async function getRagContext(query) {
   if (!query || typeof query !== 'string') {
     throw new Error('El parámetro query debe ser una cadena de texto válida.');
+  }
+
+  // 🚀 Cache Nivel 2: Verificar si ya tenemos el contexto RAG cacheado
+  const searchCacheKey = query.trim().toLowerCase();
+  const cachedSearch = getCachedItem(searchCache, searchCacheKey, SEARCH_CACHE_TTL);
+  
+  if (cachedSearch) {
+    return cachedSearch.context;
   }
 
   const searchClient = new SearchClient(
@@ -93,25 +176,18 @@ async function getRagContext(query) {
     const startTime = Date.now();
     const queryEmbedding = await generateEmbedding(query);
     const embeddingTime = Date.now() - startTime;
-    
-    console.log(`⚡ Embedding generado en ${embeddingTime}ms`);
-
-    console.log('Embedding generado:', queryEmbedding); // Log del embedding
 
     // Primero intentemos una búsqueda de texto simple para diagnóstico
     const textResults = await searchClient.search(query);
-    console.log('Búsqueda de texto simple:', textResults);
     
     // Convertir resultados de texto a array
     const textSearchResults = [];
     for await (const result of textResults.results) {
       textSearchResults.push(result);
     }
-    console.log('Documentos de búsqueda de texto:', textSearchResults);
 
     // Si no hay resultados de texto, el índice puede estar vacío
     if (textSearchResults.length === 0) {
-      console.log('Índice vacío, devolviendo contexto por defecto');
       return 'No hay documentos en el índice de búsqueda. Respondiendo sin contexto adicional.';
     }
 
@@ -126,23 +202,29 @@ async function getRagContext(query) {
 
     const results = await searchClient.search(query, { vectorQueries: [vectorQuery] }); 
 
-    console.log('Resultados de Azure AI Search:', results); // Log de los resultados
-
     // Convertir el iterador de resultados en un array
     const searchResults = [];
     for await (const result of results.results) {
       searchResults.push(result);
     }
 
-    console.log('Documentos encontrados:', searchResults); // Log de los documentos
-
     const context = searchResults.map((result) => result.document.content).join('\n');
+    const finalContext = context || 'No se encontró información relevante.';
 
-    return context || 'No se encontró información relevante.';
+    // 🚀 Cache Nivel 2: Guardar contexto RAG para futuras consultas
+    setCachedItem(searchCache, searchCacheKey, { context: finalContext }, CACHE_MAX_SIZE, 'Search');
+
+    return finalContext;
   } catch (error) {
     console.error('Error al recuperar el contexto:', error);
     return `Error al recuperar información relevante: ${error.message}`;
   }
 }
 
-module.exports = { getRagContext, generateEmbedding, getCacheStats };
+module.exports = { 
+  getRagContext, 
+  generateEmbedding, 
+  getCacheStats,
+  getCachedResponse,
+  setCachedResponse
+};

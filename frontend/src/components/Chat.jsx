@@ -51,7 +51,6 @@ const Chat = () => {
       clearTimeout(timeoutId); // Limpiar timeout si la request fue exitosa
 
       const data = await response.json();
-      console.log('Respuesta del backend:', data); // Log para depurar
 
       // Verificar si la respuesta indica un error
       if (data.status === 'error') {
@@ -62,8 +61,6 @@ const Chat = () => {
       const botMessage = data.response || data.message || 'No hay respuesta del servidor';
       setMessages((prev) => [...prev, { text: botMessage, sender: 'bot' }]);
     } catch (error) {
-      console.error('Error en el chat:', error); // Log del error
-      
       let errorMessage = 'Ha ocurrido un error inesperado.';
       if (error.name === 'AbortError') {
         errorMessage = 'La consulta está tomando demasiado tiempo. Por favor, intenta de nuevo.';

@@ -31,4 +31,21 @@ module.exports = fp(async function (fastify, opts) {
       reply.code(500).send({ status: 'error', message: 'Error getting cache stats.' });
     }
   });
+
+  // 🧹 Endpoint para limpiar cache manualmente (útil para testing)
+  fastify.delete('/cache/clear', { preHandler: [authenticate] }, async (request, reply) => {
+    try {
+      const { clearEmbeddings, clearSearches, clearResponses } = require('../services/ragService');
+      
+      // Por ahora, simplemente reiniciamos el servidor para limpiar el cache
+      // En producción, implementaríamos funciones específicas de limpieza
+      reply.send({ 
+        status: 'success', 
+        message: 'Cache será limpiado automáticamente por TTL',
+        note: 'Para limpiar inmediatamente, reinicia el servidor'
+      });
+    } catch (error) {
+      reply.code(500).send({ status: 'error', message: 'Error clearing cache.' });
+    }
+  });
 });

@@ -1,5 +1,5 @@
-// Chat service: RAG + GPT
-const { getRagContext } = require('./ragService');
+// Chat service: RAG + GPT con Cache Multinivel
+const { getRagContext, getCachedResponse, setCachedResponse } = require('./ragService');
 const { OpenAI } = require('openai');
 const { getLocalLLMResponse } = require('./localLLMService');
 const { createSystemMessage } = require('../utils/prompts');
@@ -16,15 +16,20 @@ const azureOpenAI = new OpenAI({
 
 async function getChatResponse(message) {
   try {
+    // 🚀 Cache Nivel 3: Verificar si ya tenemos una respuesta completa cacheada
+    const cachedResponse = getCachedResponse(message);
+    if (cachedResponse) {
+      return cachedResponse;
+    }
+
+    // Si no hay cache, proceder con el flujo normal
     const context = await getRagContext(message);
-    console.log('Contexto RAG obtenido:', context);
+    
+    let response;
     
     if (process.env.USE_LOCAL_LLM === 'true') {
-      console.log('Usando modelo local LM Studio');
-      return await getLocalLLMResponse(context, message, process.env.LOCAL_LLM_URL);
+      response = await getLocalLLMResponse(context, message, process.env.LOCAL_LLM_URL);
     } else {
-      console.log('Usando modelo Azure OpenAI');
-      
       // Usar el prompt centralizado
       const systemMessage = createSystemMessage(context);
       const messages = [
@@ -36,8 +41,13 @@ async function getChatResponse(message) {
         model: process.env.AZURE_OPENAI_CHAT_DEPLOYMENT,
         messages: messages,
       });
-      return completion.choices[0].message.content;
+      response = completion.choices[0].message.content;
     }
+
+    // 🚀 Cache Nivel 3: Guardar la respuesta completa para futuras consultas
+    setCachedResponse(message, response);
+    
+    return response;
   } catch (error) {
     console.error('Error en getChatResponse:', error);
     throw error;
