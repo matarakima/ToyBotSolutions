@@ -130,6 +130,11 @@ VITE_API_URL=http://localhost:3000
 - `GET /cache/stats` — Estadísticas del sistema de caché y conversaciones (requiere autenticación)
 - `DELETE /cache/clear` — Limpiar caché manualmente (requiere autenticación)
 
+### Health Checks
+- `GET /health` — Health check completo con información detallada del sistema
+- `GET /health/live` — Health check básico para verificar que el servidor está vivo
+- `GET /health/ready` — Readiness check para verificar que el servidor está listo para recibir tráfico
+
 ## 🎨 Características del Frontend
 
 ### 🎭 Diseño moderno
@@ -211,6 +216,29 @@ curl -X DELETE http://localhost:3000/conversation/clear \
 ```bash
 curl -X GET http://localhost:3000/cache/stats \
   -H "Authorization: Bearer <TOKEN>"
+```
+
+### 🧹 Limpiar caché
+```bash
+curl -X DELETE http://localhost:3000/cache/clear \
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+### 🏥 Health Checks
+
+#### Health check completo
+```bash
+curl -X GET http://localhost:3000/health
+```
+
+#### Health check básico (liveness)
+```bash
+curl -X GET http://localhost:3000/health/live
+```
+
+#### Readiness check
+```bash
+curl -X GET http://localhost:3000/health/ready
 ```
 
 ### 🧹 Limpiar caché

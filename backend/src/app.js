@@ -63,6 +63,165 @@ const start = async () => {
       reply.send(error);
     });
 
+    // Health Check Endpoint
+    fastify.get('/health', async (request, reply) => {
+      const startTime = Date.now();
+      const health = {
+        status: 'healthy',
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime(),
+        version: process.env.npm_package_version || '1.0.0',
+        environment: process.env.NODE_ENV || 'development',
+        services: {},
+        checks: {}
+      };
+
+      try {
+        // Check básico del servidor
+        health.checks.server = {
+          status: 'healthy',
+          message: 'Server is running'
+        };
+
+        // Check de memoria - información limitada en producción
+        const memoryUsage = process.memoryUsage();
+        const isProduction = process.env.NODE_ENV === 'production';
+        
+        health.checks.memory = {
+          status: memoryUsage.heapUsed < 1024 * 1024 * 1024 ? 'healthy' : 'warning', // 1GB
+          ...(isProduction ? {} : {
+            usage: {
+              heapUsed: `${Math.round(memoryUsage.heapUsed / 1024 / 1024)}MB`,
+              heapTotal: `${Math.round(memoryUsage.heapTotal / 1024 / 1024)}MB`,
+              external: `${Math.round(memoryUsage.external / 1024 / 1024)}MB`
+            }
+          })
+        };
+
+        // Check de servicios disponibles
+        try {
+          const { getCacheStats } = require('./services/ragService');
+          const isProduction = process.env.NODE_ENV === 'production';
+          const cacheStats = getCacheStats();
+          
+          health.services.rag = {
+            status: 'healthy',
+            ...(isProduction ? {} : { cache: cacheStats })
+          };
+        } catch (error) {
+          health.services.rag = {
+            status: 'error',
+            message: isProduction ? 'Service unavailable' : error.message
+          };
+        }
+
+        try {
+          const { getConversationStats } = require('./services/chatService');
+          const isProduction = process.env.NODE_ENV === 'production';
+          const chatStats = getConversationStats();
+          
+          health.services.chat = {
+            status: 'healthy',
+            ...(isProduction ? {} : { stats: chatStats })
+          };
+        } catch (error) {
+          health.services.chat = {
+            status: 'error',
+            message: isProduction ? 'Service unavailable' : error.message
+          };
+        }
+
+        // Verificar acceso a base de datos SQLite
+        try {
+          const fs = require('fs');
+          const path = require('path');
+          const dbPath = path.join(__dirname, '../dev.sqlite3');
+          const isProduction = process.env.NODE_ENV === 'production';
+          
+          if (fs.existsSync(dbPath)) {
+            const stats = fs.statSync(dbPath);
+            health.checks.database = {
+              status: 'healthy',
+              message: 'SQLite database accessible',
+              ...(isProduction ? {} : {
+                size: `${Math.round(stats.size / 1024)}KB`,
+                lastModified: stats.mtime.toISOString()
+              })
+            };
+          } else {
+            health.checks.database = {
+              status: 'warning',
+              message: 'SQLite database file not found'
+            };
+          }
+        } catch (error) {
+          health.checks.database = {
+            status: 'error',
+            message: isProduction ? 'Database connection failed' : error.message
+          };
+        }
+
+        // Tiempo de respuesta
+        const responseTime = Date.now() - startTime;
+        health.responseTime = `${responseTime}ms`;
+
+        // Determinar estado general
+        const hasErrors = Object.values(health.checks).some(check => check.status === 'error') ||
+                         Object.values(health.services).some(service => service.status === 'error');
+        
+        const hasWarnings = Object.values(health.checks).some(check => check.status === 'warning') ||
+                           Object.values(health.services).some(service => service.status === 'warning');
+
+        if (hasErrors) {
+          health.status = 'unhealthy';
+          return reply.code(503).send(health);
+        } else if (hasWarnings) {
+          health.status = 'degraded';
+          return reply.code(200).send(health);
+        }
+
+        return reply.code(200).send(health);
+
+      } catch (error) {
+        health.status = 'unhealthy';
+        health.error = error.message;
+        return reply.code(503).send(health);
+      }
+    });
+
+    // Health Check simple para load balancers
+    fastify.get('/health/live', async (request, reply) => {
+      return reply.code(200).send({ 
+        status: 'alive',
+        timestamp: new Date().toISOString()
+      });
+    });
+
+    // Readiness check - verificar si el servidor está listo para recibir tráfico
+    fastify.get('/health/ready', async (request, reply) => {
+      try {
+        // Verificaciones básicas de que los servicios están listos
+        const { getCacheStats } = require('./services/ragService');
+        const { getConversationStats } = require('./services/chatService');
+        
+        // Intentar acceder a los servicios básicos
+        getCacheStats();
+        getConversationStats();
+        
+        return reply.code(200).send({ 
+          status: 'ready',
+          timestamp: new Date().toISOString(),
+          uptime: process.uptime()
+        });
+      } catch (error) {
+        return reply.code(503).send({ 
+          status: 'not ready',
+          error: error.message,
+          timestamp: new Date().toISOString()
+        });
+      }
+    });
+
     // Fastify v5 ya incluye el parser JSON por defecto
     // Eliminar el parser custom que estaba causando conflictos
 
