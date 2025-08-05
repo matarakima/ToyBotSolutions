@@ -1,80 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import apiService, { ApiError } from '../services/apiService';
+import { validateMessage, sanitizeInput } from '../utils/validation';
 import '../styles/Chat.css';
 import MarkdownMessage from './MarkdownMessage';
-
-const API_URL = import.meta.env.VITE_API_URL;
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
+  const { token, logout } = useAuth();
 
-  const sendMessage = async (message) => {
+  const sendMessage = useCallback(async (message) => {
     // Validación básica
-    const trimmedMessage = message.trim();
-    if (!trimmedMessage) {
-      return; // No enviar mensajes vacíos
-    }
+    const sanitizedMessage = sanitizeInput(message);
+    const messageErrors = validateMessage(sanitizedMessage);
     
-    if (trimmedMessage.length > 500) {
+    if (messageErrors.length > 0) {
       setMessages((prev) => [...prev, { 
-        text: 'Tu mensaje es muy largo. Por favor, mantén tus preguntas bajo 500 caracteres.', 
+        text: `❌ ${messageErrors[0]}`, 
         sender: 'bot' 
       }]);
       return;
     }
 
-    setMessages([...messages, { text: trimmedMessage, sender: 'user' }]);
-    setIsProcessing(true); // Activa el indicador de carga
+    setMessages([...messages, { text: sanitizedMessage, sender: 'user' }]);
+    setIsProcessing(true);
 
     try {
-      const token = localStorage.getItem('jwt'); // Recupera el token almacenado después del login
-      if (!token) {
-        throw new Error('No se encontró un token de autenticación. Por favor, inicia sesión.');
-      }
-
-      // Crear un timeout para la request
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => {
-        controller.abort();
-      }, 30000); // 30 segundos timeout
-
-      const response = await fetch(`${API_URL}/chat`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // Incluye el token en el encabezado
-        },
-        body: JSON.stringify({ message: trimmedMessage }),
-        signal: controller.signal, // Agregar signal para timeout
-      });
-
-      clearTimeout(timeoutId); // Limpiar timeout si la request fue exitosa
-
-      const data = await response.json();
-
-      // Verificar si la respuesta indica un error
-      if (data.status === 'error') {
+      const data = await apiService.sendMessage(sanitizedMessage, token);
+      
+      if (data.status === 'completed') {
+        setMessages((prev) => [...prev, { text: data.response, sender: 'bot' }]);
+      } else {
         throw new Error(data.message || 'Error del servidor');
       }
-
-      // Verificar si la respuesta tiene el formato esperado
-      const botMessage = data.response || data.message || 'No hay respuesta del servidor';
-      setMessages((prev) => [...prev, { text: botMessage, sender: 'bot' }]);
     } catch (error) {
       let errorMessage = 'Ha ocurrido un error inesperado.';
-      if (error.name === 'AbortError') {
-        errorMessage = 'La consulta está tomando demasiado tiempo. Por favor, intenta de nuevo.';
-      } else if (error.message.includes('token')) {
-        errorMessage = 'Sesión expirada. Por favor, inicia sesión nuevamente.';
+      
+      if (error instanceof ApiError) {
+        errorMessage = error.getDisplayMessage();
+        
+        // Auto-logout en caso de error de autenticación
+        if (error.status === 401) {
+          setTimeout(() => logout(), 2000);
+        }
       } else if (error.message) {
         errorMessage = error.message;
       }
       
       setMessages((prev) => [...prev, { text: `❌ ${errorMessage}`, sender: 'bot' }]);
     } finally {
-      setIsProcessing(false); // Desactiva el indicador de carga
+      setIsProcessing(false);
     }
-  };
+  }, [messages, token, logout]);
 
   return (
     <div className="chat-container">
@@ -101,7 +79,8 @@ const Chat = () => {
         type="text"
         placeholder="Type a message..."
         onKeyDown={(e) => {
-          if (e.key === 'Enter' && e.target.value.trim()) {
+          if (e.key === 'Enter' && !e.shiftKey && e.target.value.trim()) {
+            e.preventDefault();
             sendMessage(e.target.value);
             e.target.value = '';
           }
