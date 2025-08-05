@@ -4,22 +4,24 @@ export const validateUsername = (username) => {
   const errors = [];
   
   if (!username || username.trim().length === 0) {
-    errors.push(VALIDATION_RULES.USERNAME.ERROR_MESSAGES.REQUIRED);
+    errors.push('El nombre de usuario es requerido');
     return errors;
   }
   
   const trimmed = username.trim();
   
-  if (trimmed.length < VALIDATION_RULES.USERNAME.MIN_LENGTH) {
-    errors.push(VALIDATION_RULES.USERNAME.ERROR_MESSAGES.MIN_LENGTH);
+  // Validación básica para UX inmediata - menos estricta que el backend
+  if (trimmed.length < 2) {
+    errors.push('El nombre de usuario es muy corto');
   }
   
-  if (trimmed.length > VALIDATION_RULES.USERNAME.MAX_LENGTH) {
-    errors.push(VALIDATION_RULES.USERNAME.ERROR_MESSAGES.MAX_LENGTH);
+  if (trimmed.length > 50) {
+    errors.push('El nombre de usuario es muy largo');
   }
   
-  if (!VALIDATION_RULES.USERNAME.PATTERN.test(trimmed)) {
-    errors.push(VALIDATION_RULES.USERNAME.ERROR_MESSAGES.PATTERN);
+  // Validación básica de caracteres obviamente inválidos
+  if (/[<>'"&]/.test(trimmed)) {
+    errors.push('El nombre de usuario contiene caracteres no permitidos');
   }
   
   return errors;
@@ -29,11 +31,18 @@ export const validatePassword = (password) => {
   const errors = [];
   
   if (!password || password.length === 0) {
-    errors.push(VALIDATION_RULES.PASSWORD.ERROR_MESSAGES.REQUIRED);
+    errors.push('La contraseña es requerida');
     return errors;
   }
   
-  // Removido el límite mínimo de caracteres
+  // Validación básica para UX - menos estricta que el backend
+  if (password.length < 2) {
+    errors.push('La contraseña es muy corta');
+  }
+  
+  if (password.length > 200) {
+    errors.push('La contraseña es muy larga');
+  }
   
   return errors;
 };

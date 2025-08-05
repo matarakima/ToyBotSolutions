@@ -54,7 +54,9 @@ async function authRoutes(fastify, options) {
       if (existing) {
         return reply.code(409).send({ 
           success: false, 
-          message: 'User already exists' 
+          message: 'Este nombre de usuario ya está en uso. Por favor elige otro.',
+          errorType: 'business',
+          field: null
         });
       }
       
@@ -64,14 +66,14 @@ async function authRoutes(fastify, options) {
       
       reply.send({ 
         success: true, 
-        message: 'User registered successfully' 
+        message: 'Usuario registrado exitosamente' 
       });
       
     } catch (error) {
       fastify.log.error('Registration error:', error);
       reply.code(500).send({ 
         success: false, 
-        message: 'Internal server error' 
+        message: 'Error interno del servidor. Por favor intenta nuevamente.' 
       });
     }
   });
@@ -88,7 +90,9 @@ async function authRoutes(fastify, options) {
       if (!user) {
         return reply.code(401).send({ 
           success: false, 
-          message: 'Invalid credentials' 
+          message: 'Nombre de usuario o contraseña incorrectos',
+          errorType: 'business',
+          field: null
         });
       }
       
@@ -97,7 +101,9 @@ async function authRoutes(fastify, options) {
       if (!valid) {
         return reply.code(401).send({ 
           success: false, 
-          message: 'Invalid credentials' 
+          message: 'Nombre de usuario o contraseña incorrectos',
+          errorType: 'business',
+          field: null
         });
       }
       
@@ -111,14 +117,14 @@ async function authRoutes(fastify, options) {
       reply.send({ 
         success: true, 
         token, 
-        message: 'Login successful' 
+        message: 'Inicio de sesión exitoso' 
       });
       
     } catch (error) {
       fastify.log.error('Login error:', error);
       reply.code(500).send({ 
         success: false, 
-        message: 'Internal server error' 
+        message: 'Error interno del servidor. Por favor intenta nuevamente.' 
       });
     }
   });

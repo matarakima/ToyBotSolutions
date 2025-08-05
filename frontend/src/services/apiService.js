@@ -208,17 +208,33 @@ class ApiError extends Error {
   getDisplayMessage() {
     switch (this.status) {
       case HTTP_STATUS.BAD_REQUEST:
+        // Si hay un mensaje específico del servidor, usarlo
+        if (this.message && this.message !== 'Request failed') {
+          return this.message;
+        }
         if (this.data && this.data.code === 'FST_ERR_VALIDATION') {
           return 'Error de validación: ' + (this.data.message || 'Datos inválidos');
         }
         return 'Datos inválidos. Por favor verifica la información ingresada.';
       case HTTP_STATUS.UNAUTHORIZED:
+        // Si hay un mensaje específico del servidor, usarlo
+        if (this.message && this.message !== 'Login failed') {
+          return this.message;
+        }
         return ERROR_MESSAGES.UNAUTHORIZED;
       case HTTP_STATUS.CONFLICT:
+        // Si hay un mensaje específico del servidor, usarlo
+        if (this.message && this.message !== 'Register failed') {
+          return this.message;
+        }
         return 'El usuario ya existe. Intenta con otro nombre de usuario.';
       case HTTP_STATUS.TOO_MANY_REQUESTS:
         return 'Demasiadas solicitudes. Espera un momento antes de intentar nuevamente.';
       case HTTP_STATUS.INTERNAL_SERVER_ERROR:
+        // Si hay un mensaje específico del servidor, usarlo
+        if (this.message && this.message !== 'Request failed') {
+          return this.message;
+        }
         return ERROR_MESSAGES.SERVER;
       case 0:
         return this.message;

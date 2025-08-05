@@ -34,6 +34,27 @@ const AuthForm = () => {
     }
   }, [errors, submitError]);
 
+  const handleInputBlur = useCallback((e) => {
+    const { name, value } = e.target;
+    
+    // Validación inmediata cuando el usuario sale del campo
+    const newErrors = {};
+    
+    if (name === 'username') {
+      const usernameErrors = validateUsername(value);
+      if (usernameErrors.length > 0) {
+        newErrors.username = usernameErrors[0];
+      }
+    } else if (name === 'password') {
+      const passwordErrors = validatePassword(value);
+      if (passwordErrors.length > 0) {
+        newErrors.password = passwordErrors[0];
+      }
+    }
+    
+    setErrors(prev => ({ ...prev, ...newErrors }));
+  }, []);
+
   const validateForm = () => {
     const newErrors = {};
     
@@ -89,13 +110,60 @@ const AuthForm = () => {
       }
     } catch (error) {
       if (error instanceof ApiError) {
-        setSubmitError(error.getDisplayMessage());
+        const errorMessage = error.getDisplayMessage();
+        const errorData = error.data;
+        
+        // Usar metadatos del backend si están disponibles
+        if (errorData && errorData.errorType === 'validation' && errorData.field) {
+          // Error de validación de campo específico → debajo del input
+          if (errorData.field === 'password') {
+            setErrors(prev => ({ ...prev, password: errorMessage }));
+          } else if (errorData.field === 'username') {
+            setErrors(prev => ({ ...prev, username: errorMessage }));
+          } else {
+            setSubmitError(errorMessage);
+          }
+        } else if (errorData && errorData.errorType === 'business') {
+          // Error de negocio → arriba del formulario
+          setSubmitError(errorMessage);
+        } else {
+          // Fallback: usar detección por contenido del mensaje
+          if (isFieldValidationError(errorMessage)) {
+            if (errorMessage.toLowerCase().includes('contraseña')) {
+              setErrors(prev => ({ ...prev, password: errorMessage }));
+            } else if (errorMessage.toLowerCase().includes('nombre de usuario') || errorMessage.toLowerCase().includes('usuario')) {
+              setErrors(prev => ({ ...prev, username: errorMessage }));
+            } else {
+              setSubmitError(errorMessage);
+            }
+          } else {
+            setSubmitError(errorMessage);
+          }
+        }
       } else {
         setSubmitError('Error inesperado. Intenta nuevamente.');
       }
     } finally {
       setLoading(false);
     }
+  };
+
+  // Función auxiliar para detectar errores de validación de campo
+  const isFieldValidationError = (message) => {
+    const fieldValidationKeywords = [
+      'debe tener al menos',
+      'no puede tener más de',
+      'solo puede contener',
+      'es obligatorio',
+      'es requerido',
+      'caracteres',
+      'longitud',
+      'formato'
+    ];
+    
+    return fieldValidationKeywords.some(keyword => 
+      message.toLowerCase().includes(keyword)
+    );
   };
 
   const resetForm = useCallback(() => {
@@ -146,6 +214,7 @@ const AuthForm = () => {
               placeholder="Nombre de usuario"
               value={formData.username}
               onChange={handleInputChange}
+              onBlur={handleInputBlur}
               required
               disabled={loading}
               className={errors.username ? 'error' : ''}
@@ -166,6 +235,7 @@ const AuthForm = () => {
               placeholder="Contraseña"
               value={formData.password}
               onChange={handleInputChange}
+              onBlur={handleInputBlur}
               required
               disabled={loading}
               className={errors.password ? 'error' : ''}
