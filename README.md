@@ -68,6 +68,10 @@ npm start
 cd ../frontend
 npm install
 
+# Configurar variables de entorno
+cp .env.example .env
+# Editar .env con la URL del backend
+
 # Iniciar aplicación React
 npm run dev
 ```
@@ -96,6 +100,17 @@ AZURE_OPENAI_API_KEY=tu_api_key
 AZURE_SEARCH_ENDPOINT=tu_search_endpoint
 AZURE_SEARCH_API_KEY=tu_search_key
 AZURE_SEARCH_INDEX=tu_index
+
+# LLM Local (opcional)
+USE_LOCAL_LLM=false
+LOCAL_LLM_URL=http://localhost:1234/v1/chat/completions
+LOCAL_LLM_MODEL=google/gemma-3n-e4b
+```
+
+### Frontend (.env)
+```env
+# URL del backend para las llamadas API
+VITE_API_URL=http://localhost:3000
 ```
 
 ## 📡 API Endpoints
@@ -107,8 +122,9 @@ AZURE_SEARCH_INDEX=tu_index
 ### Chat
 - `POST /chat` — Chat protegido con autenticación JWT
 
-### Estadísticas
-- `GET /cache/stats` — Estadísticas del sistema de caché
+### Cache y Estadísticas  
+- `GET /cache/stats` — Estadísticas del sistema de caché (requiere autenticación)
+- `DELETE /cache/clear` — Limpiar caché manualmente (requiere autenticación)
 
 ## 🎨 Características del Frontend
 
@@ -173,6 +189,18 @@ curl -X POST http://localhost:3000/chat \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <TOKEN>" \
   -d '{"message":"¿Qué puedes hacer?"}'
+```
+
+### 📊 Estadísticas del caché
+```bash
+curl -X GET http://localhost:3000/cache/stats \
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+### 🧹 Limpiar caché
+```bash
+curl -X DELETE http://localhost:3000/cache/clear \
+  -H "Authorization: Bearer <TOKEN>"
 ```
 
 ## 🚀 Despliegue

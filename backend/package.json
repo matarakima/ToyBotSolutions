@@ -5,7 +5,12 @@
   "type": "commonjs",
   "scripts": {
     "start": "node src/app.js",
-    "test": "jest"
+    "test": "jest",
+    "create-index": "node scripts/create-optimized-index.js",
+    "upload-rag": "node scripts/upload-rag-optimized.js",
+    "test-search": "node scripts/test-azure-search.js",
+    "test-search-interactive": "node scripts/test-azure-search.js --interactive",
+    "check-config": "node scripts/check-config.js"
   },
   "dependencies": {
     "@azure/identity": "^4.11.0",
