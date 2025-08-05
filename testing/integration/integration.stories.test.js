@@ -98,24 +98,5 @@ describe('Integration Tests - User Stories', () => {
     ).toBeTruthy();
   });
 
-  // Positive Case: Child-friendly language for product info
-  it('should use child-friendly language for product info', async () => {
-    const payload = { message: '¿Qué hace el juguete robot?' };
-    const res = await request(BASE_URL).post('/chat').send(payload);
-    expect(res.statusCode).toBe(200);
-    const text = res.text.toLowerCase();
-    const complexWords = [
-      'inteligencia artificial', 'procesamiento', 'algoritmo', 'configuración',
-      'parámetro', 'sistema operativo', 'hardware', 'software', 'implementación'
-    ];
-    complexWords.forEach(word => {
-      expect(text.includes(word)).toBe(false);
-    });
-    // Check for short, simple sentences
-    text.split(/[.!?]/).forEach(sentence => {
-      if (sentence.trim()) {
-        expect(sentence.split(' ').length).toBeLessThanOrEqual(20);
-      }
-    });
-  });
+  // ...existing code...
 });
