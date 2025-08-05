@@ -1,64 +1,196 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import apiService, { ApiError } from '../services/apiService';
+import { validateMessage, sanitizeInput } from '../utils/validation';
 import '../styles/Chat.css';
 import MarkdownMessage from './MarkdownMessage';
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    { 
+      text: "¡Hola! 👋 Soy ToyBot, tu asistente inteligente. ¿En qué puedo ayudarte hoy?", 
+      sender: 'bot',
+      timestamp: new Date()
+    }
+  ]);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const { token, logout, user } = useAuth();
+  const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
 
-  const sendMessage = async (message) => {
-    setMessages([...messages, { text: message, sender: 'user' }]);
-    setIsProcessing(true); // Activa el indicador de carga
+  // Auto-scroll al final de los mensajes
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const sendMessage = useCallback(async (message) => {
+    if (!message.trim() || isProcessing) return;
+
+    // Validación básica
+    const sanitizedMessage = sanitizeInput(message);
+    const messageErrors = validateMessage(sanitizedMessage);
+    
+    if (messageErrors.length > 0) {
+      setMessages((prev) => [...prev, { 
+        text: `❌ ${messageErrors[0]}`, 
+        sender: 'bot',
+        timestamp: new Date()
+      }]);
+      return;
+    }
+
+    // Agregar mensaje del usuario
+    const userMessage = { 
+      text: sanitizedMessage, 
+      sender: 'user',
+      timestamp: new Date()
+    };
+    
+    setMessages(prev => [...prev, userMessage]);
+    setIsProcessing(true);
+    setInputValue('');
 
     try {
-      const token = localStorage.getItem('jwt'); // Recupera el token almacenado después del login
-      if (!token) {
-        throw new Error('No se encontró un token de autenticación. Por favor, inicia sesión.');
+      const data = await apiService.sendMessage(sanitizedMessage, token);
+      
+      if (data.status === 'completed') {
+        const botMessage = { 
+          text: data.response, 
+          sender: 'bot',
+          timestamp: new Date()
+        };
+        setMessages((prev) => [...prev, botMessage]);
+      } else {
+        throw new Error(data.message || 'Error del servidor');
       }
-
-      const response = await fetch(`${API_URL}/chat`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // Incluye el token en el encabezado
-        },
-        body: JSON.stringify({ message }),
-      });
-
-      const data = await response.json();
-
-      setMessages((prev) => [...prev, { text: data.response, sender: 'bot' }]);
     } catch (error) {
-      setMessages((prev) => [...prev, { text: 'Error: Unable to process your request.', sender: 'bot' }]);
+      let errorMessage = 'Ha ocurrido un error inesperado.';
+      
+      if (error instanceof ApiError) {
+        errorMessage = error.getDisplayMessage();
+        
+        // Auto-logout en caso de error de autenticación
+        if (error.status === 401) {
+          setTimeout(() => logout(), 2000);
+        }
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+      
+      setMessages((prev) => [...prev, { 
+        text: `❌ ${errorMessage}`, 
+        sender: 'bot',
+        timestamp: new Date()
+      }]);
     } finally {
-      setIsProcessing(false); // Desactiva el indicador de carga
+      setIsProcessing(false);
+      inputRef.current?.focus();
     }
+  }, [token, logout, isProcessing]);
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage(inputValue);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendMessage(inputValue);
   };
 
   return (
     <div className="chat-container">
+      {/* Header del chat */}
+      <div className="chat-header">
+        <div className="bot-info">
+          <div className="bot-avatar">🤖</div>
+          <div className="bot-details">
+            <h3>ToyBot</h3>
+            <span className="bot-status">En línea</span>
+          </div>
+        </div>
+        <div className="user-info">
+          <span className="welcome">Hola, {user?.username || user || 'Usuario'}</span>
+          <button onClick={logout} className="logout-button">
+            Cerrar Sesión
+          </button>
+        </div>
+      </div>
+
+      {/* Mensajes */}
       <div className="messages">
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.sender}`}>
-            <MarkdownMessage text={msg.text} className="markdown-message" />
+            <div className="message-content">
+              <MarkdownMessage text={msg.text} className="markdown-message" />
+              <div className="message-time">
+                {msg.timestamp?.toLocaleTimeString([], { 
+                  hour: '2-digit', 
+                  minute: '2-digit' 
+                })}
+              </div>
+            </div>
           </div>
         ))}
+        
+        {/* Indicador de escritura */}
         {isProcessing && (
-          <div className="message bot isProcessing">...</div> // Indicador de carga
+          <div className="message bot typing">
+            <div className="message-content">
+              <div className="typing-indicator">
+                <div className="typing-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <span className="typing-text">ToyBot está escribiendo...</span>
+              </div>
+            </div>
+          </div>
         )}
+        
+        <div ref={messagesEndRef} />
       </div>
-      <input
-        type="text"
-        placeholder="Type a message..."
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' && e.target.value.trim()) {
-            sendMessage(e.target.value);
-            e.target.value = '';
-          }
-        }}
-      />
+
+      {/* Input del chat */}
+      <form className="chat-input-form" onSubmit={handleSubmit}>
+        <div className="input-container">
+          <input
+            ref={inputRef}
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Escribe tu mensaje..."
+            onKeyDown={handleKeyDown}
+            disabled={isProcessing}
+            className="chat-input"
+          />
+          <button 
+            type="submit" 
+            disabled={!inputValue.trim() || isProcessing}
+            className="send-button"
+          >
+            <svg 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2"
+            >
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22,2 15,22 11,13 2,9"></polygon>
+            </svg>
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
