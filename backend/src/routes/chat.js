@@ -1,7 +1,7 @@
-// Chat route (protected)
+// Chat route (protected) con Historial de Conversación
 const fp = require('fastify-plugin');
 const { authenticate } = require('../middleware/authMiddleware');
-const { getChatResponse } = require('../services/chatService');
+const { getChatResponse, clearConversation, getConversationHistory, getConversationStats } = require('../services/chatService');
 const { getCacheStats } = require('../services/ragService');
 
 module.exports = fp(async function (fastify, opts) {
@@ -65,8 +65,8 @@ module.exports = fp(async function (fastify, opts) {
       // Sanitizar mensaje
       const sanitizedMessage = message.trim().substring(0, 1000);
       
-      // RAG + GPT response
-      const response = await getChatResponse(sanitizedMessage);
+      // RAG + GPT response con historial
+      const response = await getChatResponse(sanitizedMessage, username);
       reply.send({ status: 'completed', response, timestamp: new Date().toISOString() });
     } catch (error) {
       fastify.log.error('Chat error:', error);
@@ -80,14 +80,48 @@ module.exports = fp(async function (fastify, opts) {
   // 📊 Endpoint opcional para estadísticas del cache (solo para PoC/debugging)
   fastify.get('/cache/stats', { preHandler: [authenticate] }, async (request, reply) => {
     try {
-      const stats = getCacheStats();
+      const cacheStats = getCacheStats();
+      const conversationStats = getConversationStats();
       reply.send({ 
         status: 'success', 
-        cache: stats,
+        cache: cacheStats,
+        conversations: conversationStats,
         timestamp: new Date().toISOString()
       });
     } catch (error) {
       reply.code(500).send({ status: 'error', message: 'Error getting cache stats.' });
+    }
+  });
+
+  // 📜 Endpoint para obtener historial de conversación
+  fastify.get('/conversation/history', { preHandler: [authenticate] }, async (request, reply) => {
+    try {
+      const username = request.user?.user;
+      const history = getConversationHistory(username);
+      reply.send({
+        status: 'success',
+        history,
+        username,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      reply.code(500).send({ status: 'error', message: 'Error getting conversation history.' });
+    }
+  });
+
+  // 🧹 Endpoint para limpiar historial de conversación
+  fastify.delete('/conversation/clear', { preHandler: [authenticate] }, async (request, reply) => {
+    try {
+      const username = request.user?.user;
+      clearConversation(username);
+      reply.send({
+        status: 'success',
+        message: 'Conversation history cleared.',
+        username,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      reply.code(500).send({ status: 'error', message: 'Error clearing conversation history.' });
     }
   });
 

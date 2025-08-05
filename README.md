@@ -120,10 +120,14 @@ VITE_API_URL=http://localhost:3000
 - `POST /login` — Autenticación y obtención de token JWT
 
 ### Chat
-- `POST /chat` — Chat protegido con autenticación JWT
+- `POST /chat` — Chat protegido con autenticación JWT (incluye historial automático)
+
+### Historial de Conversación
+- `GET /conversation/history` — Obtener historial de conversación del usuario (requiere autenticación)
+- `DELETE /conversation/clear` — Limpiar historial de conversación del usuario (requiere autenticación)
 
 ### Cache y Estadísticas  
-- `GET /cache/stats` — Estadísticas del sistema de caché (requiere autenticación)
+- `GET /cache/stats` — Estadísticas del sistema de caché y conversaciones (requiere autenticación)
 - `DELETE /cache/clear` — Limpiar caché manualmente (requiere autenticación)
 
 ## 🎨 Características del Frontend
@@ -188,10 +192,22 @@ curl -X POST http://localhost:3000/login \
 curl -X POST http://localhost:3000/chat \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <TOKEN>" \
-  -d '{"message":"¿Qué puedes hacer?"}'
+  -d '{"message":"¿Qué juguetes recomiendas para un niño de 5 años?"}'
 ```
 
-### 📊 Estadísticas del caché
+### 📜 Obtener historial de conversación
+```bash
+curl -X GET http://localhost:3000/conversation/history \
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+### 🧹 Limpiar historial de conversación
+```bash
+curl -X DELETE http://localhost:3000/conversation/clear \
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+### 📊 Estadísticas del caché y conversaciones
 ```bash
 curl -X GET http://localhost:3000/cache/stats \
   -H "Authorization: Bearer <TOKEN>"
