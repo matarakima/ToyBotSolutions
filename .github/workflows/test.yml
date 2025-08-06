@@ -274,13 +274,11 @@ jobs:
       uses: actions/github-script@v7
       with:
         script: |
-          const { unit, integration, e2e, full } = needs;
-          
           const results = {
-            unit: unit.result,
-            integration: integration.result,
-            e2e: e2e.result,
-            full: full?.result || 'skipped'
+            unit: needs.unit.result,
+            integration: needs.integration.result,
+            e2e: needs.e2e.result,
+            full: needs.full?.result || 'skipped'
           };
           
           const allPassed = Object.values(results).every(r => r === 'success' || r === 'skipped');
