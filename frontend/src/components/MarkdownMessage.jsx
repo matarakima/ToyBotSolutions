@@ -19,9 +19,6 @@ export default function MarkdownMessage({ text, className }) {
   // Sanitizar el HTML generado
   const sanitizedHTML = DOMPurify.sanitize(rawHTML);
 
-  // Depurar el HTML generado
-  console.log('HTML generado:', sanitizedHTML);
-
   return (
     <div
       className={className}

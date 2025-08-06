@@ -220,6 +220,7 @@ const AuthForm = () => {
               className={errors.username ? 'error' : ''}
               aria-invalid={!!errors.username}
               aria-describedby={errors.username ? 'username-error' : undefined}
+              autoComplete="username"
             />
             {errors.username && (
               <div id="username-error" className="field-error">
@@ -241,6 +242,7 @@ const AuthForm = () => {
               className={errors.password ? 'error' : ''}
               aria-invalid={!!errors.password}
               aria-describedby={errors.password ? 'password-error' : undefined}
+              autoComplete={isLogin ? "current-password" : "new-password"}
             />
             {errors.password && (
               <div id="password-error" className="field-error">
