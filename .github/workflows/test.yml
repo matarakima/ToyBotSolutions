@@ -275,10 +275,10 @@ jobs:
       with:
         script: |
           const results = {
-            unit: needs.unit.result,
-            integration: needs.integration.result,
-            e2e: needs.e2e.result,
-            full: needs.full?.result || 'skipped'
+            unit: needs['unit-tests'].result,
+            integration: needs['integration-tests'].result,
+            e2e: needs['e2e-tests'].result,
+            full: needs['full-tests']?.result || 'skipped'
           };
           
           const allPassed = Object.values(results).every(r => r === 'success' || r === 'skipped');
