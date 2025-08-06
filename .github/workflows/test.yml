@@ -274,18 +274,24 @@ jobs:
       uses: actions/github-script@v7
       with:
         script: |
-          const results = {
-            unit: needs['unit-tests'].result,
-            integration: needs['integration-tests'].result,
-            e2e: needs['e2e-tests'].result,
-            full: needs['full-tests']?.result || 'skipped'
-          };
+          console.log('🎉 Verificando resultados de las pruebas...');
           
-          const allPassed = Object.values(results).every(r => r === 'success' || r === 'skipped');
+          // Verificar resultados de cada job
+          const unitResult = needs['unit-tests']?.result || 'unknown';
+          const integrationResult = needs['integration-tests']?.result || 'unknown';
+          const e2eResult = needs['e2e-tests']?.result || 'unknown';
+          const fullResult = needs['full-tests']?.result || 'skipped';
+          
+          console.log(`Unit Tests: ${unitResult}`);
+          console.log(`Integration Tests: ${integrationResult}`);
+          console.log(`E2E Tests: ${e2eResult}`);
+          console.log(`Full Tests: ${fullResult}`);
+          
+          const allPassed = [unitResult, integrationResult, e2eResult, fullResult]
+            .every(r => r === 'success' || r === 'skipped');
           
           if (allPassed) {
             console.log('🎉 Todas las pruebas pasaron exitosamente!');
           } else {
             console.log('❌ Algunas pruebas fallaron');
-            console.log('Resultados:', results);
           } 
