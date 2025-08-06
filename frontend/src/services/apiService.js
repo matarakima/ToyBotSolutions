@@ -206,6 +206,14 @@ class ApiError extends Error {
    * @returns {string} Mensaje de error
    */
   getDisplayMessage() {
+    // 🔐 NUEVA LÓGICA: Manejar respuestas del nuevo middleware de auth
+    if (this.data && this.data.action) {
+      // Si el backend indica que necesita relogin, usar el mensaje del backend
+      if (this.data.action === 'relogin_required' || this.data.action === 'login_required') {
+        return this.data.message || this.message || 'Por favor inicia sesión nuevamente';
+      }
+    }
+
     switch (this.status) {
       case HTTP_STATUS.BAD_REQUEST:
         // Si hay un mensaje específico del servidor, usarlo
@@ -241,6 +249,17 @@ class ApiError extends Error {
       default:
         return this.message || ERROR_MESSAGES.SERVER;
     }
+  }
+
+  /**
+   * 🆕 Verifica si el error requiere relogin
+   * @returns {boolean} True si necesita relogin
+   */
+  requiresRelogin() {
+    return this.data && (
+      this.data.action === 'relogin_required' || 
+      this.data.action === 'login_required'
+    );
   }
 }
 

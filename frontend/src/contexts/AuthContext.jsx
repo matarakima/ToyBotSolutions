@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { ApiError } from '../services/apiService';
 
 const AuthContext = createContext();
 
@@ -41,6 +42,15 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('user');
   };
 
+  // 🆕 Función para manejar errores de autenticación automáticamente
+  const handleAuthError = (error) => {
+    if (error instanceof ApiError && error.requiresRelogin()) {
+      logout();
+      return true; // Indica que se hizo logout automático
+    }
+    return false; // No requiere logout
+  };
+
   const isAuthenticated = () => {
     return !!token && !!user;
   };
@@ -50,6 +60,7 @@ export const AuthProvider = ({ children }) => {
     token,
     login,
     logout,
+    handleAuthError, // 🆕 Nueva función
     isAuthenticated,
     loading
   };

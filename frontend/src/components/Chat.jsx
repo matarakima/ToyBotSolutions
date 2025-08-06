@@ -15,7 +15,7 @@ const Chat = () => {
   ]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const { token, logout, user } = useAuth();
+  const { token, logout, user, handleAuthError } = useAuth();
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -74,9 +74,20 @@ const Chat = () => {
       if (error instanceof ApiError) {
         errorMessage = error.getDisplayMessage();
         
-        // Auto-logout en caso de error de autenticación
-        if (error.status === 401) {
-          setTimeout(() => logout(), 2000);
+        // 🆕 NUEVO: Usar handleAuthError para logout automático
+        const wasLoggedOut = handleAuthError(error);
+        if (wasLoggedOut) {
+          // Si se hizo logout automático, mostrar mensaje informativo
+          setMessages((prev) => [...prev, { 
+            text: `🔐 ${errorMessage}. Serás redirigido al login...`, 
+            sender: 'bot',
+            timestamp: new Date()
+          }]);
+          // Pequeño delay para que el usuario vea el mensaje
+          setTimeout(() => {
+            // El App.jsx se encargará de la redirección automática
+          }, 1500);
+          return;
         }
       } else if (error.message) {
         errorMessage = error.message;
