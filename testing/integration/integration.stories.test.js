@@ -17,14 +17,14 @@ describe('Integración del Sistema', () => {
   });
 
   test('debería poder usar funciones básicas de Node.js', () => {
-    // Verificar que funções básicas do Node.js funcionam
+    // Verificar que funciones básicas de Node.js funcionan
     expect(typeof console.log).toBe('function');
     expect(typeof setTimeout).toBe('function');
     expect(typeof setInterval).toBe('function');
   });
 
   test('debería poder usar módulos nativos', () => {
-    // Verificar que módulos nativos funcionam
+    // Verificar que módulos nativos funcionan
     const fs = require('fs');
     const path = require('path');
     
