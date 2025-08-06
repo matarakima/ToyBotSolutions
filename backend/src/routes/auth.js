@@ -109,7 +109,7 @@ async function authRoutes(fastify, options) {
       
       // Generar token JWT
       const token = jwt.sign(
-        { user: username }, 
+        { user: { id: user.id, username: user.username } }, 
         process.env.JWT_SECRET || 'secret', 
         { expiresIn: process.env.JWT_EXPIRES_IN || '24h' }
       );
