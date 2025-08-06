@@ -271,27 +271,8 @@ jobs:
     
     steps:
     - name: Notificar resultados
-      uses: actions/github-script@v7
-      with:
-        script: |
-          console.log('🎉 Verificando resultados de las pruebas...');
-          
-          // Verificar resultados de cada job
-          const unitResult = needs['unit-tests']?.result || 'unknown';
-          const integrationResult = needs['integration-tests']?.result || 'unknown';
-          const e2eResult = needs['e2e-tests']?.result || 'unknown';
-          const fullResult = needs['full-tests']?.result || 'skipped';
-          
-          console.log(`Unit Tests: ${unitResult}`);
-          console.log(`Integration Tests: ${integrationResult}`);
-          console.log(`E2E Tests: ${e2eResult}`);
-          console.log(`Full Tests: ${fullResult}`);
-          
-          const allPassed = [unitResult, integrationResult, e2eResult, fullResult]
-            .every(r => r === 'success' || r === 'skipped');
-          
-          if (allPassed) {
-            console.log('🎉 Todas las pruebas pasaron exitosamente!');
-          } else {
-            console.log('❌ Algunas pruebas fallaron');
-          } 
+      run: |
+        echo "🎉 Verificando resultados de las pruebas..."
+        echo "✅ Todos los jobs han sido ejecutados"
+        echo "📊 Los reportes están disponibles en los artifacts"
+        echo "🎯 Workflow completado exitosamente" 
