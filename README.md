@@ -1,86 +1,291 @@
-# ToyBotSolutions
+# ToyBotSolutions 🤖
 
-ToyBotSolutions es una aplicación backend desarrollada en Node.js y Fastify que expone endpoints para registro, autenticación y chat inteligente. El sistema soporta integración con modelos OpenAI y LM Studio, y está preparado para funcionar tanto en entornos locales como en Azure SQL.
+ToyBotSolutions es una aplicación full-stack moderna que combina un potente backend en Node.js/Fastify con un elegante frontend en React. El sistema ofrece autenticación segura, chat inteligente con IA, y un sistema RAG (Retrieval-Augmented Generation) con caché multinivel para respuestas optimizadas.
 
-## Instalación y configuración
+## 🌟 Características principales
 
-Siga estos pasos para instalar y ejecutar el proyecto desde cero:
+- **🔐 Autenticación JWT**: Sistema seguro de registro y login
+- **🤖 Chat inteligente**: Integración con OpenAI GPT y LM Studio
+- **🚀 Sistema RAG**: Búsqueda semántica con Azure Cognitive Search
+- **⚡ Caché multinivel**: 3 niveles de caché para máximo rendimiento
+- **🎨 UI moderna**: Interfaz React con diseño glassmorphism
+- **📱 Responsive**: Adaptado para desktop y móvil
+- **🔒 Seguro**: Validación robusta y sanitización de datos
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/<usuario>/<repositorio>.git
-   cd ToyBotSolutions
-   ```
+## 🏗️ Arquitectura
 
-2. **Instalar dependencias**
-   ```bash
-   npm install
-   ```
+```
+ToyBotSolutions/
+├── backend/                    # API REST con Fastify v5
+│   ├── src/
+│   │   ├── routes/            # Rutas de autenticación y chat
+│   │   ├── services/          # Lógica de negocio y RAG
+│   │   ├── models/            # Modelos de datos
+│   │   └── utils/             # Utilidades y helpers
+│   └── package.json
+├── frontend/                   # React SPA
+│   ├── src/
+│   │   ├── components/        # Componentes React
+│   │   ├── pages/             # Páginas principales
+│   │   ├── services/          # Cliente API
+│   │   ├── contexts/          # Contextos React
+│   │   └── styles/            # CSS moderno
+│   └── package.json
+└── testing/                    # Suite de pruebas E2E y unitarias
+```
 
-3. **Configurar variables de entorno**
-   - Copie el archivo `.env.example` a `.env` y complete los valores necesarios:
-     ```bash
-     cp .env.example .env
-     ```
-   - Edite `.env` para definir claves, puertos y credenciales según su entorno.
+## 🚀 Instalación y configuración
 
-4. **Ejecutar migraciones de base de datos**
-   ```bash
-   npx knex migrate:latest
-   ```
-
-5. **Iniciar la aplicación**
-   ```bash
-   npm start
-   ```
-
-6. **Ejecutar pruebas**
-   ```bash
-   npm test
-   ```
-
-## Endpoints principales
-
-- `/register` — Registro de usuario
-- `/login` — Autenticación y obtención de token JWT
-- `/chat` — Chat protegido con autenticación JWT
-
-## Requisitos
-
+### Prerrequisitos
 - Node.js 20+
+- npm o yarn
 - SQLite (local) o Azure SQL (producción)
 
-Para más información sobre configuración avanzada, revise los archivos de ejemplo y la documentación interna del proyecto.
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/matarakima/ToyBotSolutions.git
+cd ToyBotSolutions
+```
 
-## Ejemplos de uso con curl
+### 2. Configurar Backend
+```bash
+cd backend
+npm install
 
-A continuación se presentan ejemplos para probar los endpoints principales utilizando la herramienta `curl`:
+# Configurar variables de entorno
+cp .env.example .env
+# Editar .env con tus credenciales
 
-### Registro de usuario
+# Ejecutar migraciones
+npx knex migrate:latest
 
+# Iniciar servidor
+npm start
+```
+
+### 3. Configurar Frontend
+```bash
+cd ../frontend
+npm install
+
+# Configurar variables de entorno
+cp .env.example .env
+# Editar .env con la URL del backend
+
+# Iniciar aplicación React
+npm run dev
+```
+
+## 🔧 Variables de entorno
+
+### Backend (.env)
+```env
+# Servidor
+PORT=3000
+NODE_ENV=development
+
+# Base de datos
+DATABASE_URL=./database.sqlite
+
+# JWT
+JWT_SECRET=tu_secreto_jwt_super_seguro
+JWT_EXPIRES_IN=24h
+
+# OpenAI
+OPENAI_API_KEY=tu_openai_api_key
+
+# Azure (opcional)
+AZURE_OPENAI_ENDPOINT=tu_endpoint
+AZURE_OPENAI_API_KEY=tu_api_key
+AZURE_SEARCH_ENDPOINT=tu_search_endpoint
+AZURE_SEARCH_API_KEY=tu_search_key
+AZURE_SEARCH_INDEX=tu_index
+
+# LLM Local (opcional)
+USE_LOCAL_LLM=false
+LOCAL_LLM_URL=http://localhost:1234/v1/chat/completions
+LOCAL_LLM_MODEL=google/gemma-3n-e4b
+```
+
+### Frontend (.env)
+```env
+# URL del backend para las llamadas API
+VITE_API_URL=http://localhost:3000
+```
+
+## 📡 API Endpoints
+
+### Autenticación
+- `POST /register` — Registro de usuario
+- `POST /login` — Autenticación y obtención de token JWT
+
+### Chat
+- `POST /chat` — Chat protegido con autenticación JWT (incluye historial automático)
+
+### Historial de Conversación
+- `GET /conversation/history` — Obtener historial de conversación del usuario (requiere autenticación)
+- `DELETE /conversation/clear` — Limpiar historial de conversación del usuario (requiere autenticación)
+
+### Cache y Estadísticas  
+- `GET /cache/stats` — Estadísticas del sistema de caché y conversaciones (requiere autenticación)
+- `DELETE /cache/clear` — Limpiar caché manualmente (requiere autenticación)
+
+### Health Checks
+- `GET /health` — Health check completo con información detallada del sistema
+- `GET /health/live` — Health check básico para verificar que el servidor está vivo
+- `GET /health/ready` — Readiness check para verificar que el servidor está listo para recibir tráfico
+
+## 🎨 Características del Frontend
+
+### 🎭 Diseño moderno
+- **Glassmorphism**: Efectos de cristal y blur
+- **Gradientes**: Paleta de colores moderna
+- **Animaciones**: Transiciones suaves
+- **Responsive**: Adaptado a todos los dispositivos
+
+### 💬 Chat inteligente
+- **Burbujas de chat**: Estilo WhatsApp/Telegram
+- **Timestamps**: Hora en cada mensaje
+- **Indicador de escritura**: Animación elegante
+- **Auto-scroll**: Navegación automática
+- **Markdown**: Soporte completo para formato de texto
+
+### 🔐 Autenticación integrada
+- **Formularios elegantes**: Login y registro unificados
+- **Validación en tiempo real**: Feedback inmediato
+- **Gestión de sesiones**: Persistencia automática
+- **Auto-logout**: Cierre automático en errores de auth
+
+## 🧪 Pruebas
+
+### Ejecutar todas las pruebas
+```bash
+cd testing
+npm test
+```
+
+### Pruebas específicas
+```bash
+# Pruebas unitarias
+npm run test:unit
+
+# Pruebas de integración
+npm run test:integration
+
+# Pruebas E2E
+npm run test:e2e
+```
+
+## 📖 Ejemplos de uso
+
+### 🔐 Registro de usuario
 ```bash
 curl -X POST http://localhost:3000/register \
   -H "Content-Type: application/json" \
-  -d '{"username":"testuser","password":"testpass"}'
+  -d '{"username":"usuario123","password":"password123"}'
 ```
 
-### Login de usuario (obtención de token JWT)
-
+### 🔑 Login de usuario
 ```bash
 curl -X POST http://localhost:3000/login \
   -H "Content-Type: application/json" \
-  -d '{"username":"testuser","password":"testpass"}'
+  -d '{"username":"usuario123","password":"password123"}'
 ```
 
-El resultado incluirá un campo `token` que debe utilizarse en el siguiente endpoint.
-
-### Chat protegido (requiere token JWT)
-
+### 💬 Chat con IA
 ```bash
 curl -X POST http://localhost:3000/chat \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <TOKEN>" \
-  -d '{"message":"Hola"}'
+  -d '{"message":"¿Qué juguetes recomiendas para un niño de 5 años?"}'
 ```
 
-Reemplace `<TOKEN>` por el valor obtenido en el login.
+### 📜 Obtener historial de conversación
+```bash
+curl -X GET http://localhost:3000/conversation/history \
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+### 🧹 Limpiar historial de conversación
+```bash
+curl -X DELETE http://localhost:3000/conversation/clear \
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+### 📊 Estadísticas del caché y conversaciones
+```bash
+curl -X GET http://localhost:3000/cache/stats \
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+### 🧹 Limpiar caché
+```bash
+curl -X DELETE http://localhost:3000/cache/clear \
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+### 🏥 Health Checks
+
+#### Health check completo
+```bash
+curl -X GET http://localhost:3000/health
+```
+
+#### Health check básico (liveness)
+```bash
+curl -X GET http://localhost:3000/health/live
+```
+
+#### Readiness check
+```bash
+curl -X GET http://localhost:3000/health/ready
+```
+
+### 🧹 Limpiar caché
+```bash
+curl -X DELETE http://localhost:3000/cache/clear \
+  -H "Authorization: Bearer <TOKEN>"
+```
+
+## 🚀 Despliegue
+
+### Desarrollo
+```bash
+# Backend
+cd backend && npm start
+
+# Frontend (nueva terminal)
+cd frontend && npm run dev
+```
+
+### Producción
+```bash
+# Construir frontend
+cd frontend && npm run build
+
+# Iniciar backend en modo producción
+cd backend && NODE_ENV=production npm start
+```
+
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+## 🙏 Agradecimientos
+
+- **Fastify** - Framework web rápido y eficiente
+- **React** - Biblioteca para interfaces de usuario
+- **OpenAI** - Modelos de IA avanzados
+- **Azure** - Servicios de búsqueda y IA en la nube
+
+---
+
+**Hecho con ❤️ por el equipo de ToyBotSolutions**

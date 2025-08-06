@@ -1,22 +1,19 @@
 // Servicio para conectar con LM Studio
 const axios = require('axios');
+const { createSystemMessage } = require('../utils/prompts');
 
 async function getLocalLLMResponse(context, message, url) {
   const model = process.env.LOCAL_LLM_MODEL || 'google/gemma-3-12b';
   try {
-    console.log('Payload enviado a LM Studio:', {
-      model,
-      messages: [
-     //   { role: 'system', content: `Context: ${context}` },
-        { role: 'user', content: message }
-      ]
-    });
+    // Usar el prompt centralizado
+    const systemMessage = createSystemMessage(context);
+    
     const response = await axios.post(
       url || 'http://localhost:1234/v1/chat/completions',
       {
         model,
         messages: [
-       //   { role: 'system', content: `Context: ${context}` },
+          { role: 'system', content: systemMessage },
           { role: 'user', content: message }
         ]
       }
