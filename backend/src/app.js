@@ -131,29 +131,22 @@ const start = async () => {
           };
         }
 
-        // Verificar acceso a base de datos SQLite
+        // Verificar acceso a base de datos
         try {
-          const fs = require('fs');
-          const path = require('path');
-          const dbPath = path.join(__dirname, '../dev.sqlite3');
+          const knex = require('./db');
           const isProduction = process.env.NODE_ENV === 'production';
           
-          if (fs.existsSync(dbPath)) {
-            const stats = fs.statSync(dbPath);
-            health.checks.database = {
-              status: 'healthy',
-              message: 'SQLite database accessible',
-              ...(isProduction ? {} : {
-                size: `${Math.round(stats.size / 1024)}KB`,
-                lastModified: stats.mtime.toISOString()
-              })
-            };
-          } else {
-            health.checks.database = {
-              status: 'warning',
-              message: 'SQLite database file not found'
-            };
-          }
+          // Test simple de conectividad
+          await knex.raw('SELECT 1 as test');
+          
+          health.checks.database = {
+            status: 'healthy',
+            message: 'Database accessible',
+            ...(isProduction ? {} : {
+              type: process.env.NODE_ENV === 'production' ? 'Azure SQL' : 'SQLite',
+              connectionTest: 'passed'
+            })
+          };
         } catch (error) {
           health.checks.database = {
             status: 'error',
