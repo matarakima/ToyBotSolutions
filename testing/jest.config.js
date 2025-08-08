@@ -15,7 +15,8 @@ module.exports = {
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/reports/',
-    '<rootDir>/scripts/'
+    '<rootDir>/scripts/',
+    '<rootDir>/e2e/'  // Excluir testes E2E do Playwright
   ],
   
   // Configuración de cobertura
@@ -74,7 +75,8 @@ module.exports = {
   // Configuración de watch mode
   watchPathIgnorePatterns: [
     '<rootDir>/node_modules/',
-    '<rootDir>/reports/'
+    '<rootDir>/reports/',
+    '<rootDir>/e2e/'
   ],
   
   // Configuración de notificaciones
