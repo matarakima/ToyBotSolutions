@@ -1,6 +1,31 @@
 // Constantes de la aplicación
+const getApiUrl = () => {
+  // Prioridad: Variable de entorno > Auto-detección > Fallback
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  
+  // Auto-detección basada en el hostname
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    
+    // Si estamos en Azure Static Web Apps
+    if (hostname.includes('azurestaticapps.net')) {
+      return 'https://toybot-webapp-cfgmhqfrazakfnhe.canadacentral-01.azurewebsites.net';
+    }
+    
+    // Si estamos en localhost para desarrollo
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      return 'http://localhost:3000';
+    }
+  }
+  
+  // Fallback por defecto
+  return 'http://localhost:3000';
+};
+
 export const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:3000',
+  BASE_URL: getApiUrl(),
   TIMEOUT: 30000, // 30 segundos
   RETRY_ATTEMPTS: 3
 };
