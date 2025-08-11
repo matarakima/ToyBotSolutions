@@ -218,9 +218,31 @@ const start = async () => {
     // Fastify v5 ya incluye el parser JSON por defecto
     // Eliminar el parser custom que estaba causando conflictos
 
+    // Ruta raíz - redireccionar a /chat
+    fastify.get('/', async (request, reply) => {
+      return reply.redirect(302, '/chat');
+    });
+
     // Registrar rutas
     await fastify.register(require('./routes/auth'));
     await fastify.register(require('./routes/chat'));
+
+    // Handler para rutas no encontradas - redireccionar a /chat
+    fastify.setNotFoundHandler(async (request, reply) => {
+      // Si es una ruta de API, devolver 404 JSON
+      if (request.url.startsWith('/api/') || 
+          request.url.startsWith('/health')) {
+        return reply.code(404).send({
+          success: false,
+          message: `Ruta ${request.method} ${request.url} no encontrada`,
+          error: 'Not Found',
+          statusCode: 404
+        });
+      }
+      
+      // Para cualquier otra ruta, redireccionar a /chat
+      return reply.redirect(302, '/chat');
+    });
 
     await fastify.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' });
     console.log(`🚀 Server running on port ${process.env.PORT || 3000}`);
